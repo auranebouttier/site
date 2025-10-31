@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Designer Graphique</title>
+    <!-- Chargement de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chargement de la police Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- AJOUT: CSS pour Swiper.js (Carrousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* Définition de la police Inter comme police par défaut */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Style pour les éléments animés (scroll-reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* AJOUT: Styles pour le carrousel (flèches et points noirs) */
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            color: #000;
+            font-size: 20px !important;
+            font-weight: 700;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #000;
+        }
+        
+        /* Style pour la Boîte de Réception Privée */
+        #inbox-section {
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+
+    <!-- ==== En-tête et Navigation ==== -->
+    <header class="fixed top-0 left-0 w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Votre Nom/Logo -->
+            <a href="#" class="text-xl font-bold tracking-tight hover:text-gray-600 transition-colors">
+                Aurane Bouttier
+            </a>
+            
+            <!-- Liens de navigation -->
+            <div class="space-x-6">
+                <a href="#portfolio" class="text-gray-700 hover:text-black transition-colors">Portfolio</a>
+                <a href="#contact-form-section" class="text-gray-700 hover:text-black transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==== Contenu Principal ==== -->
+    <main class="pt-20"> <!-- Padding top pour compenser la hauteur de l'en-tête fixe -->
+
+        <!-- ==== Section Héros ==== -->
+        <section class="container mx-auto px-6 py-24 md:py-32 text-center reveal">
+            <h1 class="text-2xl md:text-4xl font-bold tracking-tighter leading-tight mb-6">
+                Graphic Designer & Mix Media Artist
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                Basée à Paris 🇫🇷, je suis une artiste pluridisciplinaire. J'explore l'intersection entre les outils numériques et les techniques manuelles. Je crée des identités visuelles fortes et singulières.
+            </p>
+        </section>
+
+        <!-- ==== Section Portfolio ==== -->
+        <section id="portfolio" class="container mx-auto px-6 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 reveal">Mes Projets</h2>
+
+            <!-- Grille du portfolio -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Projet 1 -->
+                <a href="#" class="block group reveal" style="transition-delay: 100ms;">
+                    <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <!-- Les attributs HTML autoplay muted playsinline sont la méthode correcte -->
+                        <video id="motionPosterVideo"
+                             src="https://i.imgur.com/O9SPnkc.mp4" 
+                             alt="Motion Design - Moving Poster Hoda Afshar Exhibition"
+                             autoplay
+                             loop
+                             muted
+                             playsinline
+                             class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                             Votre navigateur ne supporte pas la lecture de vidéos.
+                        </video>
+                    </div>
+                    <div class="mt-4">
+                        <!-- MODIFICATION: Titre mis à jour -->
+                        <h3 class="text-xl font-semibold">Motion Design - Moving Poster Hoda Afshar Exhibition</h3>
+                        <!-- SUPPRESSION: Ligne de catégorie enlevée -->
+                    </div>
+                </a>
+
+                <!-- Projet 2 (INCHANGÉ, COMME DEMANDÉ) -->
+                <a href="#" class="block group reveal" style="transition-delay: 200ms;">
+                    <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://i.imgur.com/kYuF0De.png" 
+                             alt="Illustration - La boîte de Pandore" 
+                             class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-xl font-semibold">Illustration - La boîte de Pandore</h3>
+                        <!-- SUPPRESSION: Ligne de catégorie enlevée -->
+                    </div>
+                </a>
+
+                <!-- Projet 3 - REMPLACÉ PAR UN CARROUSEL DE 9 IMAGES -->
+                <div class="reveal" style="transition-delay: 300ms;">
+                    <!-- Structure du Carrousel Swiper -->
+                    <div class="swiper project-carousel overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="swiper-wrapper">
+                            <!-- Image 1 -->
+                            <div class="swiper-slide">
+                                <img src="https://i.imgur.com/uSAtx0p.jpeg" 
+                                     alt="Description image 1" 
+                                     class="w-full h-auto">
+                            </div>
+                            <!-- Image 2 -->
+                            <div class="swiper-slide">
+                                <img src="https://i.imgur.com/gBGmmmb.jpeg" 
+                                     alt="Description image 2" 
+                                     class="w-full h-auto">
+                            </div>
+                            
+                            <!-- MODIFIÉ: Slide 3 et 4 combinées -->
+                            <div class="swiper-slide">
+                                <!-- Conteneur pour empiler les 2 images avec espace (gap-6) -->
+                                <div class="flex flex-col gap-6">
+                                    <!-- Image 3 (en haut) -->
+                                    <img src="https://i.imgur.com/AjCd0SX.jpeg" 
+                                         alt="Description image 3" 
+                                         class="w-full h-auto">
+                                    <!-- Image 4 (en bas) -->
+                                    <img src="https://i.imgur.com/nAVecIO.jpeg" 
+                                         alt="Description image 4" 
+                                         class="w-full h-auto">
+                                </div>
+                            </div>
+                            
+                            <!-- Image 5 -->
+                            <div class="swiper-slide">
+                                <img src="https://i.imgur.com/XM8ISz9.jpeg" 
+                                     alt="Description image 5" 
+                                     class="w-full h-auto">
+                            </div>
+                            <!-- Image 6 -->
+                            <div class="swiper-slide">
+                                <img src="https://i.imgur.com/7Wf6GIl.jpeg" 
+                                     alt="Description image 6" 
+                                     class="w-full h-auto">
+                            </div>
+                            <!-- Image 7 -->
+                            <div class="swiper-slide">
+                                <img src="https://i.imgur.com/Cbueu0w.jpeg" 
+                                     alt="Description image 7" 
+                                     class="w-full h-auto">
+                            </div>
+                            <!-- Image 8 -->
+                            <div class="swiper-slide">
+                                <img src="https://i.imgur.com/K0GvabN.jpeg" 
+                                     alt="Description image 8" 
+                                     class="w-full h-auto">
+                            </div>
+                            <!-- Image 9 -->
+                            <div class="swiper-slide">
+                                <img src="https://i.imgur.com/w6SLh3g.jpeg" 
+                                     alt="Description image 9" 
+                                     class="w-full h-auto">
+                            </div>
+                        </div>
+                        
+                        <!-- Flèches de navigation -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        
+                        <!-- Pagination (points) -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-xl font-semibold">Photographie & Conception - Collection sur la main [Prototype]</h3>
+                        <!-- SUPPRESSION: Ligne de catégorie enlevée -->
+                    </div>
+                </div>
+                
+                <!-- Projet 4 -->
+                <a href="#" class="block group reveal" style="transition-delay: 400ms;">
+                    <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <img src="https://i.imgur.com/klwG6yR.jpeg" 
+                             alt="Description du projet 4" 
+                             class="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-xl font-semibold">Peinture - Portrait</h3>
+                        <!-- <p class="text-gray-600">Catégorie</p> -->
+                    </div>
+                </a>
+                
+                <!-- Ajoutez plus de projets ici en copiant le bloc ci-dessus -->
+
+            </div>
+        </section>
+        
+        <!-- ==== Section À Propos & Réseaux Sociaux ==== -->
+        <section id="about" class="bg-gray-50 py-20 mt-16 reveal">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <h2 class="text-3xl font-bold mb-6">À propos de moi</h2>
+                <p class="text-lg text-gray-700 mb-10 leading-relaxed">
+                    Basée à Paris 🇫🇷, je suis une artiste pluridisciplinaire. J'explore l'intersection entre les outils numériques et les techniques manuelles. Je crée des identités visuelles fortes et singulières.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==== Section Contact & Boîte de Réception ==== -->
+        <section id="contact-form-section" class="container mx-auto px-6 py-20">
+            <div class="max-w-xl mx-auto reveal">
+                <h2 class="text-3xl font-bold text-center mb-10">Contact</h2>
+                
+                <!-- Formulaire de contact (avec capture locale) -->
+                <form id="contactForm" class="space-y-6">
+                    
+                    <!-- Champ Nom -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom</label>
+                        <input type="text" name="name" id="name"
+                               class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all" required>
+                    </div>
+                    
+                    <!-- Champ Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" name="email" id="email"
+                               class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all" required>
+                    </div>
+                    
+                    <!-- Champ Message -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea name="message" id="message" rows="5"
+                                  class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all" required></textarea>
+                    </div>
+                    
+                    <!-- Bouton d'envoi -->
+                    <div class="text-center">
+                        <button type="submit" id="submitBtn"
+                                class="inline-block bg-black text-white font-semibold px-8 py-3 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-colors">
+                            Envoyer le message
+                        </button>
+                    </div>
+                </form>
+
+                <!-- AJOUT: Boîte de Réception Privée (cachée par défaut) -->
+                <div id="private-inbox" class="mt-12 p-6 rounded-lg bg-gray-100 shadow-inner">
+                    <h3 class="text-2xl font-bold mb-4">Boîte de Réception Privée</h3>
+                    <div id="password-form" class="space-y-4">
+                        <p class="text-sm text-gray-600">Veuillez entrer le mot de passe pour accéder aux messages.</p>
+                        <input type="password" id="inbox-password" placeholder="Mot de passe" 
+                               class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-black">
+                        <button id="access-inbox-btn" 
+                                class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors w-full">
+                                Accéder
+                        </button>
+                    </div>
+                    <div id="inbox-content" class="hidden">
+                        <p class="text-sm font-semibold mb-4 text-black">Messages reçus (stockés localement sur cet appareil) :</p>
+                        <div id="messages-list" class="space-y-4">
+                            <!-- Les messages seront insérés ici par JS -->
+                        </div>
+                        <button id="clear-inbox-btn" 
+                                class="mt-6 bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors text-sm">
+                                Vider la Boîte de Réception
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==== Pied de page ==== -->
+    <footer class="bg-white border-t border-gray-200 mt-20">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p>&copy; <span id="currentYear"></span> Aurane Bouttier. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- AJOUT: JS pour Swiper.js (Carrousel) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- ==== Script JavaScript (Logique du site et de la Boîte de Réception) ==== -->
+    <script>
+        // Définition du mot de passe pour l'accès à la boîte de réception
+        const INBOX_PASSWORD = "Lacrim19";
+        const STORAGE_KEY = 'aurane_bouttier_messages'; // Clé pour localStorage
+
+        // --- Fonctions de la Boîte de Réception Locale ---
+
+        function getMessages() {
+            const data = localStorage.getItem(STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
+        }
+
+        function saveMessage(message) {
+            const messages = getMessages();
+            messages.push(message);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+        }
+
+        function renderMessages() {
+            const messages = getMessages().reverse(); // Afficher les plus récents en premier
+            const list = document.getElementById('messages-list');
+            list.innerHTML = ''; // Vider la liste
+
+            if (messages.length === 0) {
+                list.innerHTML = '<p class="text-gray-500 italic text-sm">Aucun message pour le moment.</p>';
+                return;
+            }
+
+            messages.forEach((msg, index) => {
+                const date = new Date(msg.timestamp).toLocaleString('fr-FR');
+                const messageHtml = `
+                    <div class="border-b border-gray-300 pb-3">
+                        <p class="font-bold text-sm text-black">${msg.name} <span class="text-gray-500 font-normal">(${msg.email})</span></p>
+                        <p class="text-xs text-gray-500 mb-1">${date}</p>
+                        <p class="text-gray-700 text-sm whitespace-pre-wrap">${msg.message}</p>
+                    </div>
+                `;
+                list.innerHTML += messageHtml;
+            });
+        }
+        
+        // --- Événements et Initialisation ---
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Mise à jour de l'année en cours dans le pied de page
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Logique pour l'animation au défilement (scroll-reveal)
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // --- Initialisation du Carrousel Swiper ---
+            const swiper = new Swiper('.project-carousel', {
+                loop: true,
+                autoHeight: true, // S'adapte à la hauteur des slides
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            // --- Logique du Formulaire d'Envoi ---
+            const contactForm = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Empêche l'envoi standard (même le mailto:)
+
+                // 1. Récupérer les données
+                const messageData = {
+                    name: nameInput.value,
+                    email: emailInput.value,
+                    message: messageInput.value,
+                    timestamp: new Date().toISOString()
+                };
+
+                // 2. Sauvegarder localement (pour l'Inbox Privée)
+                saveMessage(messageData);
+
+                // 3. Simuler l'envoi mailto: pour l'utilisateur
+                const subject = encodeURIComponent(`Nouveau contact de ${messageData.name}`);
+                const body = encodeURIComponent(`Nom: ${messageData.name}\nEmail: ${messageData.email}\n\nMessage:\n${messageData.message}`);
+                
+                // Ouvre l'application de messagerie de l'utilisateur
+                window.location.href = `mailto:auranebouttier4@gmail.com?subject=${subject}&body=${body}`;
+
+                // 4. Réinitialiser le formulaire
+                contactForm.reset();
+
+                // 5. Confirmation visuelle
+                submitBtn.textContent = "Message enregistré ! (Vérifiez votre boîte mail)";
+                setTimeout(() => {
+                    submitBtn.textContent = "Envoyer le message";
+                }, 4000);
+            });
+
+            // --- Logique d'Accès à la Boîte de Réception ---
+            const passwordInput = document.getElementById('inbox-password');
+            const accessBtn = document.getElementById('access-inbox-btn');
+            const passwordForm = document.getElementById('password-form');
+            const inboxContent = document.getElementById('inbox-content');
+            const clearBtn = document.getElementById('clear-inbox-btn');
+
+            const attemptAccess = () => {
+                if (passwordInput.value === INBOX_PASSWORD) {
+                    passwordForm.classList.add('hidden');
+                    inboxContent.classList.remove('hidden');
+                    renderMessages();
+                } else {
+                    alert("Mot de passe incorrect."); 
+                    passwordInput.value = '';
+                }
+            };
+
+            accessBtn.addEventListener('click', attemptAccess);
+
+            // Permettre la soumission par 'Entrée'
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    attemptAccess();
+                }
+            });
+
+            // Logique pour vider la boîte
+            clearBtn.addEventListener('click', () => {
+                 if (confirm("Êtes-vous sûr de vouloir supprimer TOUS les messages ? Cette action est irréversible.")) {
+                    localStorage.removeItem(STORAGE_KEY);
+                    renderMessages();
+                 }
+            });
+            
+        }); // Fin du DOMContentLoaded
+    </script>
+
+</body>
+</html>
